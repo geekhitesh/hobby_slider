@@ -1,0 +1,44 @@
+<html>
+
+<script>
+
+var img_pointer=1;
+var total_images=10;
+var slider_time;
+
+function startSlider() {
+	console.log("Slider started");
+	slider_time =  setInterval(changeImage, 500);
+}
+
+function changeImage() {
+
+	
+	var slider = document.getElementById("img_slider");
+	if(img_pointer < total_images)
+	{
+		img_pointer++;
+		slider.setAttribute("src",img_pointer+".jpg");
+	}
+	else
+	{
+		img_pointer=0; // reset the image pointer back to 0
+	}
+
+}
+
+function stopSlider() {
+
+	console.log("stopping slider");
+	clearInterval(slider_time);
+}
+
+</script>
+
+<body>
+
+<div>
+<img id="img_slider" src="1.jpg" height="200px" width="200px" alt="no-image" onmouseenter="startSlider();" onmouseleave="stopSlider();">
+</div>
+</body>
+</html>
